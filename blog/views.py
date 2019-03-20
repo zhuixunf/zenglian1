@@ -12,3 +12,9 @@ def index(request):
 def post_list(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'post_list.html', {'post': post})
+
+
+def post_delete(request, id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('/')
